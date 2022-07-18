@@ -1,5 +1,7 @@
 package jm.task.core.jdbc.util;
+
 import java.sql.*;
+
 public class Util {
     // реализуйте настройку соеденения с БД
 
@@ -8,14 +10,13 @@ public class Util {
     private static final String PASSWORD = "trapshit1997";
 
 
-
-    public Connection getConnection () {
+    public Connection getConnection() {
         Connection connection = null;
 
         try {
             connection = DriverManager.getConnection(URL, USERNAME, PASSWORD);
             System.out.println("Connection OK");
-        } catch ( SQLException e) {
+        } catch (SQLException e) {
             e.printStackTrace();
             System.out.println("Connection ERROR");
         }

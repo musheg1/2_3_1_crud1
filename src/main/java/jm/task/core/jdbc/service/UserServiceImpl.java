@@ -26,14 +26,14 @@ public class UserServiceImpl implements UserService {
     }
 
     public List<User> getAllUsers() {
-        List<User> users =  userDao.getAllUsers();
+        List<User> users = userDao.getAllUsers();
         for (User user : users) {
             System.out.println(user);
         }
-        return null;
+        return users;
     }
 
     public void cleanUsersTable() {
-    userDao.cleanUsersTable();
+        userDao.cleanUsersTable();
     }
 }
