@@ -1,8 +1,11 @@
 package jm.task.core.jdbc;
 
+import jm.task.core.jdbc.dao.UserDaoHibernateImpl;
 import jm.task.core.jdbc.dao.UserDaoJDBCImpl;
 import jm.task.core.jdbc.service.UserService;
 import jm.task.core.jdbc.service.UserServiceImpl;
+import com.mysql.cj.xdevapi.SessionFactory;
+import jm.task.core.jdbc.util.Util;
 
 
 public class Main {
@@ -10,22 +13,22 @@ public class Main {
     private final static UserService userService = new UserServiceImpl();
 
     public static void main(String[] args) {
-        UserDaoJDBCImpl userDaoJDBC = new UserDaoJDBCImpl();
+        UserDaoHibernateImpl userDaoHibernate = new UserDaoHibernateImpl();
 
-        userDaoJDBC.createUsersTable();
+        userDaoHibernate.createUsersTable();
 
-        userDaoJDBC.saveUser("Шерлок", "Холмс", (byte) 33);
-        userDaoJDBC.saveUser("Майкрофт", "Холмс", (byte) 40);
-        userDaoJDBC.saveUser("Эвр", "Холмс", (byte) 32);
-        userDaoJDBC.saveUser("Джон", "Ватсон", (byte) 35);
+        userDaoHibernate.saveUser("Шерлок", "Холмс", (byte) 33);
+        userDaoHibernate.saveUser("Майкрофт", "Холмс", (byte) 40);
+        userDaoHibernate.saveUser("Эвр", "Холмс", (byte) 32);
+        userDaoHibernate.saveUser("Джон", "Ватсон", (byte) 35);
 
-        userDaoJDBC.removeUserById(2);
+        userDaoHibernate.removeUserById(2);
 
-        userDaoJDBC.getAllUsers();
+        userDaoHibernate.getAllUsers();
 
-        userDaoJDBC.cleanUsersTable();
+        userDaoHibernate.cleanUsersTable();
 
-        userDaoJDBC.dropUsersTable();
+        userDaoHibernate.dropUsersTable();
 
     }
 

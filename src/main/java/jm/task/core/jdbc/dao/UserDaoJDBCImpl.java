@@ -12,7 +12,6 @@ public class UserDaoJDBCImpl implements UserDao {
 
     Util util = new Util();
 
-
     public UserDaoJDBCImpl() {
 
     }
