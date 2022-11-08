@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>EDIT_USER</title>
+
+</head>
+<body>
+<table>
+    <tr align="right" valign="top">
+    <tr></tr>
+    <form th:method="post" th:action="@{/user/{id}(id=${user.getId()})}" th:object="${user}">
+        <th:block><label for="id"></label></th:block>
+        <th:block><input readonly type="number" th:field="*{id}" id="id"/></th:block>
+        <td><label for="name">Enter name</label></td>
+        <td><input type="text" th:field="*{firstName}" id="name" required/></td>
+        <td><label for="SecondName">Enter SecondName</label></td>
+        <td><input type="text" th:field="*{lastName}" id="SecondName" required/></td>
+        <td><label for="Age">Enter Age</label></td>
+        <td><input type="number" th:field="*{age}" id="age" required/></td>
+        <td><input type="submit" value="Update"/></td>
+    </form>
+    <form th:method="delete" th:action="@{/user/__*{id}__}" th:object = "${user}">
+        <td><input type="submit" value="Delete"/>
+    </form>
+    <td><a href="/user/all"><input type="button" value="BackToList"/></a></td>
+    </form>
+    </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ADD_NEW_USER</title>
+    <style>
+        table {
+            width: 100%;
+            border: 4px double black;
+            border-collapse: collapse;
+        }
+        th {
+            text-align: left;
+            background: #0000FF; /* Цвет фона ячеек */
+            padding: 5px; /* Поля вокруг содержимого ячеек */
+            border: 1px solid black; /* Граница вокруг ячеек */
+        }
+    </style>
+</head>
+<body>
+<table class="click-table" id="user_table">
+    <tr>
+        <thead>
+        <h2 align="center">Add User</h2>
+        <th>Name</th>
+        <th>Last name</th>
+        <th>Age</th>
+        </thead>
+        <tbody>
+        <form th:method="post" th:action="@{/user}" th:object="${user}">
+            <th><input required type="text" th:field="*{firstName}" id="name"/></th>
+            <th><input required type="text" th:field="*{lastName}" id="SecondName"/></th>
+            <th><input required type="number" th:field="*{age}" id="age"/></th>
+            <th><input type="submit" value="Create"/></th>
+        </form>
+        </tbody>
+        <th ><a href="/user/all"><input type="button" value="BackToList"></a></th>
+<!--        <th><input type="submit" value="Create"/></th>-->
+    </tr>
+</table>
+</body>
+</html>

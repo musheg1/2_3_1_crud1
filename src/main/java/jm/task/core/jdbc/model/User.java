@@ -7,14 +7,14 @@ import javax.persistence.*;
 public class User {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue (strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
 
-    @Column(name = "name")
-    private String name;
+    @Column(name = "first_name")
+    private String firstName;
 
-    @Column(name = "lastname")
+    @Column(name = "last_name")
     private String lastName;
 
     @Column(name = "age")
@@ -24,8 +24,8 @@ public class User {
 
     }
 
-    public User(String name, String lastName, Byte age) {
-        this.name = name;
+    public User(String firstName, String lastName, Byte age) {
+        this.firstName = firstName;
         this.lastName = lastName;
         this.age = age;
     }
@@ -38,12 +38,12 @@ public class User {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
     public String getLastName() {
@@ -64,7 +64,10 @@ public class User {
 
     @Override
     public String toString() {
-        return String.format("User {id = '%s', name = '%s', lastName = '%s', age = '%d'}",
-                getId(), getName(), getLastName(), getAge());
+        return String.format("User {id = '%s', " +
+                        "name = '%s', " +
+                        "lastName = '%s', " +
+                        "age = '%d'}",
+                getId(), getFirstName(), getLastName(), getAge());
     }
 }
